@@ -1,0 +1,7 @@
+.single-item{
+    margin-top:20px;
+}
+.single-item:hover{
+    box-shadow: 2px 2px 3px 3px #e6dcdc;
+    cursor: pointer;
+}

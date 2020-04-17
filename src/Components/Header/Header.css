@@ -1,0 +1,25 @@
+ul{
+    list-style: none;
+}
+.logo img{
+    width: 150px;
+}
+.header-area .search-area{
+
+}
+.nav-area ul.nav{
+    display: inline-block;
+    text-align: center;
+
+}
+.nav-area li{
+
+    display: inline-block;
+
+}
+.nav-area a{
+    padding: 10px;
+    display: inline-block;
+    color: #e4574e;
+    font-weight: 600; 
+}
