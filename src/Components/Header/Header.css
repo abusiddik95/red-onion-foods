@@ -23,3 +23,8 @@ ul{
     color: #e4574e;
     font-weight: 600; 
 }
+.login-area span{
+    font-size: 33px;
+    color: #e41a4a;
+    padding: 10px;
+}

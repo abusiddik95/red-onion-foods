@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css'
 import Logo from '../../Images/logo2.png';
+import { Link, Router } from 'react-router-dom';
+import foodData from '../../foodData'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import Cart from '../Cart/Cart';
 
-const Header = () => {
+
+const Header = (props) => {
+    const[cart, setCart] = useState([]);
+    
     return (
         <div className="header-area">
             <div className="container">
@@ -14,7 +22,9 @@ const Header = () => {
                     </div>
                     <div className="col md-6">
                         <div className="login-area">
-                        <h4><a href="#">Cart</a></h4>
+                        <Link to="/review">
+                        <span><FontAwesomeIcon icon={faShoppingCart} /> {cart.length} </span>
+                        </Link>
                         <button type="button" className="btn btn-light">Log In</button>
                         <button type="button" className="btn btn-danger">Sign Up</button>
                         </div>
@@ -36,7 +46,7 @@ const Header = () => {
                 <div className="row text-center">
                     <div className="col-md-12">
                         <ul className="nav">
-                            <li><a href="#">All Items</a></li>
+                            <li><a href="/product">All Items</a></li>
                             <li><a href="#">Lunch</a></li>
                             <li><a href="#">Breakfast</a></li>
                             <li><a href="#">Dinner</a></li>

@@ -1,0 +1,18 @@
+.single .single-item img{
+    float: right;
+    height: 500px;
+    width:100%;
+}
+.single{
+    margin-top: 50px;
+}
+.single h3, .item-count{
+    display: inline-block;
+}
+.item-count button{
+    margin: 10px;
+    padding: 7px;
+}
+.addButton{
+    display: block;
+}
