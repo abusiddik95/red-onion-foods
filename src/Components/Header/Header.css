@@ -1,21 +1,34 @@
 ul{
     list-style: none;
 }
+a, a:hover{
+    text-decoration: none;
+}
+.header-area{
+    padding: 10px 0;
+}
 .logo img{
     width: 150px;
+    float: left;
+    padding-top: 10px;
 }
-.header-area .search-area{
-
+.header-area h1{
+    padding: 20px 0;
+    text-transform: capitalize;
+}
+.search-area{
+    height: 500px;
+    background-position: center;
+    padding: 150px 0;
+    background-size: cover;
+    margin-bottom: 50px;
 }
 .nav-area ul.nav{
     display: inline-block;
     text-align: center;
-
 }
 .nav-area li{
-
     display: inline-block;
-
 }
 .nav-area a{
     padding: 10px;
@@ -27,4 +40,23 @@ ul{
     font-size: 33px;
     color: #e41a4a;
     padding: 10px;
+}
+.header-area .btn-light{   
+    margin: 10px;
+    background: #fff;
+    border: navajowhite;
+    font-weight: 600;
+}
+.search-area .btn-danger, .header-area .btn-danger{
+    border-radius: 20px;
+    font-weight: 600;
+}
+.search-area input{
+    width: 250px;
+    height: 40px;
+}
+.search-area .btn-danger{
+    margin-left: -30px;
+    height: 40px;
+    margin-top: -6px;
 }

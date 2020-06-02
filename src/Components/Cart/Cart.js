@@ -1,9 +1,9 @@
 import React from 'react';
-import SingleItem from '../SingleItem/SingleItem';
 import { Link } from 'react-router-dom';
 
  const Cart = (props) => {
     const cart = props.cart;
+    console.log(cart);
     let total = 0;
     for(let i =0; i< cart.length; i++){
         const item = cart[i];
@@ -25,6 +25,7 @@ import { Link } from 'react-router-dom';
         const precision = num.toFixed(2);
         return Number(precision)
     }
+    
     return (
         <div>
             <h1>this is cart page</h1>
@@ -35,9 +36,13 @@ import { Link } from 'react-router-dom';
             <p>TAX: {tax}</p>
             <p>Total Price:{GrandTotal} </p>
             <br/>
-            <Link to="/review">
+            {/* <Link to="/review">
             <button>review order</button>
-            </Link>
+            </Link> */}
+
+            {
+                props.children
+            }
             
         </div>
     );

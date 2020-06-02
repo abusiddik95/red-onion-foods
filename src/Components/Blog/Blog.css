@@ -1,0 +1,23 @@
+.blog-area .row{
+    padding: 50px 0;
+}
+.blog-area h5 {
+    text-transform: capitalize;
+}
+.blog-area .card{
+    text-align: left;
+}
+.blog-area a{
+    color: #44b344;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.blog-area a span{
+    color: #fff;
+    background: #44b344;
+    border-radius: 49%;
+    margin-left: 5px;
+    padding: 4px;
+    font-size: 10px;
+}

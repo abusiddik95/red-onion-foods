@@ -1,6 +1,9 @@
 import React from 'react';
 import './Item.css'
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+
 
 const Item = (props) => {
     console.log(props);
@@ -8,13 +11,13 @@ const Item = (props) => {
 
     return (
         <div className="single-item">
-            <img src={img} alt="name" />
+            
             <Link to={"/item/" + key}>
-            <h5 className="item-name">{name}</h5>
+                <img src={img} alt="name" />
+                <h5 className="item-name">{name}</h5>
+                <p className="desc">{description}</p>
+                <h4 className="price">${price}</h4>
             </Link>
-            <p className="desc">{description}</p>
-            <h4 className="price">${price}</h4>
-    
         </div>
     );
 };

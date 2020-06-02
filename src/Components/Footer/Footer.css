@@ -1,0 +1,12 @@
+.footer-area{
+    background-color: black;
+    padding: 20px 0;
+}
+.footer-area img{
+    float: left;
+    width: 200px;
+}
+.footer-area p{
+    color: #fff;
+    padding-top: 20px;
+}

@@ -5,3 +5,16 @@
     box-shadow: 2px 2px 3px 3px #e6dcdc;
     cursor: pointer;
 }
+.single-item a{
+    color: #1b1d1d;
+}
+.single-item img{
+    width: 70%;
+    padding-bottom: 20px;
+}
+.single-item .item-name{
+    color: #3c3232;
+}
+.single-item a:hover{
+    text-decoration: none;
+}

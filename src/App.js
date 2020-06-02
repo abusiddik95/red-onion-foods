@@ -13,6 +13,9 @@ import Cart from './Components/Cart/Cart';
 import NotFound from './Components/NotFound/NotFound';
 import Review from './Components/Review/Review'
 import Shipment from './Components/Shipment/Shipment';
+import Blog from './Components/Blog/Blog'
+import Footer from './Components/Footer/Footer';
+import Inventory from './Inventory';
 
 
 function App(props) {
@@ -36,9 +39,11 @@ function App(props) {
           <Route path="/review">
           <Review></Review>
           </Route>
-          
           <Route path="/shipment">
           <Shipment></Shipment>
+          </Route>
+          <Route path="/inventory">
+          <Inventory></Inventory>
           </Route>
           <Route  path="/item/:itemKey">
           <SingleItem></SingleItem>
@@ -48,6 +53,8 @@ function App(props) {
           </Route>
         </Switch>
       </Router>
+      <Blog></Blog>
+      <Footer></Footer>
     </div>
   );  
 }

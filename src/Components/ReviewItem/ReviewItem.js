@@ -7,7 +7,7 @@ const ReviewItem = (props) => {
         <div>
             <h2>{name}</h2>
             <h4>Quantity  {quantity}</h4>
-            <p> {price} </p>
+            <p> {price * quantity} </p>
             <button onClick={() => props.removeProduct(key)}>Remove Item</button>
         </div>
     );

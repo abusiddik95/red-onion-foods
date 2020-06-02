@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Header.css'
 import Logo from '../../Images/logo2.png';
-import { Link, Router } from 'react-router-dom';
-import foodData from '../../foodData'
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import Cart from '../Cart/Cart';
+import bg from '../../Images/bannerbackground.png'
+import { useState } from 'react';
+import { useEffect } from 'react';
+import foodData from '../../foodData';
+import { getDatabaseCart } from '../../utilities/databaseManager';
 
-
-const Header = (props) => {
+const Header = () => {
     const[cart, setCart] = useState([]);
+
+    useEffect (() => {
+        const savedCart = getDatabaseCart();
+        const itemKeys = Object.keys(savedCart);
     
+        const previousCart = itemKeys.map(existingKey => {
+        const item = foodData.find(pd => pd.key === existingKey);
+        return item;
+        });
+        setCart(previousCart);
+    },[] )
+
     return (
+        <div>
         <div className="header-area">
             <div className="container">
                 <div className="row">
@@ -23,7 +37,7 @@ const Header = (props) => {
                     <div className="col md-6">
                         <div className="login-area">
                         <Link to="/review">
-                        <span><FontAwesomeIcon icon={faShoppingCart} /> {cart.length} </span>
+                        <span><FontAwesomeIcon icon={faShoppingCart}/> <small>{cart.length}</small></span>
                         </Link>
                         <button type="button" className="btn btn-light">Log In</button>
                         <button type="button" className="btn btn-danger">Sign Up</button>
@@ -31,7 +45,9 @@ const Header = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="container search-area">
+        </div>
+         <div className="search-area" style={{backgroundImage:`url(${bg})`}}>
+             <div className="container">
                 <div className="row text-center">
                     <div className="col-md-12 d-flex justify-content-center align-middle">
                         <form action="/">
@@ -41,20 +57,9 @@ const Header = (props) => {
                         </form>
                     </div>
                 </div>
-            </div>
-            <div className="container nav-area">
-                <div className="row text-center">
-                    <div className="col-md-12">
-                        <ul className="nav">
-                            <li><a href="/product">All Items</a></li>
-                            <li><a href="#">Lunch</a></li>
-                            <li><a href="#">Breakfast</a></li>
-                            <li><a href="#">Dinner</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+         </div>
+     </div>
+     </div>
     );
 };
 

@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { getDatabaseCart,removeFromDatabaseCart } from '../../utilities/databaseManager';
+import { getDatabaseCart,removeFromDatabaseCart, processOrder } from '../../utilities/databaseManager';
 import foodData from '../../foodData';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart';
+import { Link } from 'react-router-dom';
 
 const Review = () => {
     const[cart, setCart] = useState([]);
+    const [orderPlaced, setOrderPlaced] = useState(false);
 
+    const handlePlaceOrder = ()=>{
+        setCart([]);
+        setOrderPlaced(true);
+        processOrder()
+    }
     const removeProduct = (itemKey)=>{
-        const newCart = cart.filter(items=> items.id !== itemKey);
+        const newCart = cart.filter(items => items.id !== itemKey);
         setCart(newCart);
         removeFromDatabaseCart(itemKey);
     }
@@ -17,13 +24,12 @@ const Review = () => {
        const savedCart = getDatabaseCart();
        const itemKeys = Object.keys(savedCart);
 
-       const cartItems = itemKeys.map(existingKey => {
-           const item = foodData.find(pd => pd.key === existingKey);
-           item.quantity = savedCart[existingKey];
-            return item;
-        });
-        setCart(cartItems);
-       console.log(cartItems);
+            const previousCart = itemKeys.map(existingKey => {
+            const item = foodData.find(pd => pd.key === existingKey);
+            item.quantity = savedCart[existingKey];
+             return item;
+         });
+         setCart(previousCart);
         
     },[])
     return (
@@ -40,7 +46,11 @@ const Review = () => {
             }
             </div>
             <div className="col-md-5">
-               <Cart cart={cart}></Cart>
+               <Cart cart={cart}>
+                   <Link>
+                        <button onClick={handlePlaceOrder}>Place Order</button>
+                   </Link>
+               </Cart>
            </div>
             </div>
             
