@@ -12,30 +12,32 @@ const getUser = () => {
 
 const getDataKey = () => {
     const userId = getUser();
-    return `redOnion/carts/${userId}`
+    return `redOnion/carts/${userId}`;
 }
 
 // push to local storage: a temporary place for database
 const getDatabaseCart = () => {
-    const dataKey = getDataKey();
-    const data = localStorage.getItem(dataKey) || "{}";
+    const data = localStorage.getItem("data") || "[]";
     return JSON.parse(data);
 }
 
 const addToDatabaseCart = (key, count) => {
     const currentCart = getDatabaseCart();
-    currentCart[key] = count;
-    localStorage.setItem(getDataKey(), JSON.stringify(currentCart));
+    let cart = currentCart;
+    cart.push({
+      key: key,
+      count: count
+    })
+  
+    localStorage.setItem("data", JSON.stringify(cart));
 }
 
-const removeFromDatabaseCart = key => {
-    const currentCart = getDatabaseCart();
-    delete currentCart[key];
-    localStorage.setItem(getDataKey(), JSON.stringify(currentCart));
+const removeFromDatabaseCart = cart => {
+    localStorage.setItem("data", JSON.stringify(cart || []));
 }
 
 const processOrder = (cart) => {
-    localStorage.removeItem(getDataKey());
+    localStorage.removeItem("data");
 }
 
 
